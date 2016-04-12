@@ -1,8 +1,8 @@
 (function(ns) {
   'use strict';
 
-  ns.Giraffe = function Giraffe (name, age){
-    ns.Animal.call( this, name, age);
+  ns.Giraffe = function Giraffe (name, doB){
+    ns.Animal.call( this, name, doB);
     this.children = [];
   };
 
@@ -10,13 +10,18 @@ ns.Giraffe.prototype = Object.create(ns.Animal.prototype);
 ns.Giraffe.prototype.constructor = ns.Giraffe;
 
 ns.Giraffe.prototype.birth = function birth(name){
-  var children = new ns.Giraffe(name, Date.now());
-  this.calves.push( children );
-  return children;
+  var newChild = new ns.Giraffe(name, Date.now());
+  this.children.push( newChild );
+  return newChild;
 };
 
+ns.Giraffe.prototype.toString = function toString(){
+   return this.name + ' is the child of Jerry';
+};
 
-
+ns.Giraffe.prototype.leavesEaten = function leavesEaten(){
+  return (this.name.length * 10)+ ' pounds of leaves';
+};
 
   window.zoo = ns;
 }(window.zoo || {}));

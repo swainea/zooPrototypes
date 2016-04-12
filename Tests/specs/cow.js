@@ -12,15 +12,24 @@ suite( 'Cow', function (){
     assert.strictEqual( testCow.toString(), 'Moo!!! Says: testCow', 'the toString method works');
 
   });
-  test('birth function works as expected', function (){
-    var testCalf = new window.zoo.Cow.prototype.birth('testCalf');
-    this.calves = [];
 
-    assert.ok( testCalf, 'testCalf exists');
-    assert.ok( testCalf instanceof window.zoo.Cow, 'cow objects are from ns.Cow');
-    assert.ok( Date.now() - testCalf.doB < 50, 'birth time is approximately correct' );
-    assert.ok(this.claves.length > 0, 'calf is created');
+  test('birth function works as expected', function (){
+    var Spot = new window.zoo.Cow('Spot', '4-15-1990');
+    var newCalf = Spot.birth( 'Spot2' );
+
+    assert.ok( newCalf, 'testCalf exists');
+    assert.ok( newCalf instanceof window.zoo.Cow, 'cow objects are from ns.Cow');
+    assert.ok( Date.now() - newCalf.doB < 50, 'birth time is approximately correct' );
+    assert.ok(Spot.calves.length > 0, 'calf is created');
   });
+
+  test('moo function works as expected', function (){
+    var Dot = new window.zoo.Cow('Dot', '4-15-1990');
+
+    assert.isAbove( Dot.moo(), 0, 'moo function works');
+    assert.isBelow( Dot.moo(), 10, 'moo function works');
+  });
+
 });
 
 }());
