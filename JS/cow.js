@@ -15,7 +15,7 @@
 
   ns.Cow.prototype.birth = function birth(name){
     var newCalf = new ns.Cow(name, Date.now());
-    this.calves.push( cow );
+    this.calves.push( name );
     return newCalf;
   };
 

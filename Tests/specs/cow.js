@@ -13,10 +13,13 @@ suite( 'Cow', function (){
 
   });
   test('birth function works as expected', function (){
-    var testCalf = new window.zoo.Cow('testCalf', '4-16-1990');
+    var testCalf = new window.zoo.Cow.prototype.birth('testCalf');
+    this.calves = [];
 
     assert.ok( testCalf, 'testCalf exists');
     assert.ok( testCalf instanceof window.zoo.Cow, 'cow objects are from ns.Cow');
+    assert.ok( Date.now() - testCalf.doB < 50, 'birth time is approximately correct' );
+    assert.ok(this.claves.length > 0, 'calf is created');
   });
 });
 
