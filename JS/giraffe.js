@@ -19,8 +19,8 @@ ns.Giraffe.prototype.toString = function toString(){
    return this.name + ' is the child of Jerry';
 };
 
-ns.Giraffe.prototype.leavesEaten = function leavesEaten(){
-  return (this.name.length * 10)+ ' pounds of leaves';
+ns.Giraffe.prototype.leavesEaten = function leavesEaten( hoursSpentEating ){
+  return (hoursSpentEating * this.name.length) + ' pounds of leaves';
 };
 
   window.zoo = ns;

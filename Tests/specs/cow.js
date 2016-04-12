@@ -26,8 +26,7 @@ suite( 'Cow', function (){
   test('moo function works as expected', function (){
     var Dot = new window.zoo.Cow('Dot', '4-15-1990');
 
-    assert.isAbove( Dot.moo(), 0, 'moo function works');
-    assert.isBelow( Dot.moo(), 10, 'moo function works');
+    assert.strictEqual( Dot.moos(60), '300 moos', 'moo function works as expected');
   });
 
 });

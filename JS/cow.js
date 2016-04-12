@@ -9,8 +9,8 @@
   ns.Cow.prototype = Object.create(ns.Animal.prototype);
   ns.Cow.prototype.constructor = ns.Cow;
 
-  ns.Cow.prototype.moo = function moo (){
-    return (Math.random()*10);
+  ns.Cow.prototype.moos = function moos ( durationInMinutes ){
+    return durationInMinutes * 5 + ' moos'; 
   };
 
   ns.Cow.prototype.birth = function birth(name){
