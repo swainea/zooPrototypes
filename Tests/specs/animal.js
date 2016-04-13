@@ -48,7 +48,7 @@
       test('create an animal with improper doB', function(){
 
         try{
-          var testAnimal4 = new window.zoo.Animal(27, 'heyhey');
+          var testAnimal4 = new window.zoo.Animal('testAnimal14', 'heyhey');
           assert.strictEqual( testAnimal3.doB, 'expecting error to throw' );
 
         } catch (err2){
