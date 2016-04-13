@@ -10,9 +10,13 @@ ns.Giraffe.prototype = Object.create(ns.Animal.prototype);
 ns.Giraffe.prototype.constructor = ns.Giraffe;
 
 ns.Giraffe.prototype.birth = function birth(name){
-  var newChild = new ns.Giraffe(name, Date.now());
-  this.children.push( newChild );
-  return newChild;
+  if (typeof name  === 'string'){
+    var newChild = new ns.Giraffe(name, Date.now());
+    this.children.push( newChild );
+    return newChild;
+  }
+  var err = TypeError( 'Please enter a valid giraffe' );
+  throw err;
 };
 
 ns.Giraffe.prototype.toString = function toString(){
@@ -20,7 +24,11 @@ ns.Giraffe.prototype.toString = function toString(){
 };
 
 ns.Giraffe.prototype.leavesEaten = function leavesEaten( hoursSpentEating ){
-  return (hoursSpentEating * this.name.length) + ' pounds of leaves';
+  if (Number(hoursSpentEating)){
+    return (hoursSpentEating * this.name.length) + ' pounds of leaves';
+  }
+  var err = TypeError( 'Please enter hours as a number' );
+  throw err;
 };
 
   window.zoo = ns;

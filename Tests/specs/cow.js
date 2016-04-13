@@ -29,6 +29,37 @@ suite( 'Cow', function (){
     assert.strictEqual( Dot.moos(60), '300 moos', 'moo function works as expected');
   });
 
+  test('moo function error works as expected', function (){
+    var Dottie = new window.zoo.Cow('Dottie', '4-15-1990');
+
+    assert.ok( Dottie, 'Dottie exists');
+    assert.ok( Dottie instanceof window.zoo.Cow, 'cow objects are from ns.Cow');
+
+    try{
+      Dottie.moos('hello');
+
+    } catch (err){
+      console.log(err);
+      assert.strictEqual( err.message, 'Please enter a number', 'error matches thrown error');
+      assert.ok( err instanceof TypeError, 'type error returns truthy');
+    }
+  });
+
+  test ('birth function error works as expected', function (){
+    var Spottie = new window.zoo.Cow('Spottie', '4-15-1990');
+
+    assert.ok( Spottie, 'Spottie exists');
+    assert.ok( Spottie instanceof window.zoo.Cow, 'cow objects are from ns.Cow');
+
+    try{
+      Spottie.birth(3);
+
+    } catch (err) {
+      assert.strictEqual( err.message, 'Please enter a valid cow', 'error matches thrown error');
+      assert.ok( err instanceof TypeError, 'type error returns truthy');
+    }
+  });
+
 });
 
 }());
